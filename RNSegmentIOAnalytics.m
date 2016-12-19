@@ -30,6 +30,13 @@ RCT_EXPORT_METHOD(identifyUser:(NSString*)userId traits:(NSDictionary *)traits) 
 }
 
 /*
+ https://segment.com/docs/libraries/ios/#alias
+ */
+RCT_EXPORT_METHOD(alias:(NSString*)userId) {
+    [[SEGAnalytics sharedAnalytics] alias:userId];
+}
+
+/*
  https://segment.com/docs/libraries/ios/#track
  */
 RCT_EXPORT_METHOD(track:(NSString*)trackText properties:(NSDictionary *)properties) {
@@ -81,7 +88,7 @@ RCT_EXPORT_METHOD(enable) {
 -(NSMutableDictionary*) convertToStringDictionary: (NSDictionary *)properties {
     /*
      According to React Native's documentation:
-     
+
      For maps, it is the developer's responsibility to check the value types individually by manually calling RCTConvert helper methods.
      */
     NSMutableDictionary *stringDictionary = [[NSMutableDictionary alloc] init];

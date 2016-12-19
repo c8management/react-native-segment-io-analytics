@@ -28,6 +28,14 @@ var RNSegmentIOAnalytics = {
     },
 
     /*
+     * https://segment.com/docs/libraries/ios/#alias
+     * https://segment.com/docs/libraries/android/#alias
+     */
+    alias: function (userId) {
+        NativeRNSegmentIOAnalytics.alias(userId);
+    },
+
+    /*
      * https://segment.com/docs/libraries/ios/#identify
      * https://segment.com/docs/libraries/android/#identify
      */
